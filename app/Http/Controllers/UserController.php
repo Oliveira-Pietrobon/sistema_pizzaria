@@ -88,7 +88,7 @@ class UserController extends Controller
         $user->name = $data['name'];
         $user->email = $data['email'];
         if (isset($data['password'])) {
-            $user->password = $data['password'];
+            $user->password = bcrypt($data['password']);
         }
 
         // Salvar as alterações
